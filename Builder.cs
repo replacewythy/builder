@@ -6,6 +6,8 @@ namespace Builder
 {
     public class Builder
     {
+        private const string buildDir = "build";
+
         static void Main(string[] args)
         {
             Console.Write("\nTarget: ");
@@ -30,12 +32,15 @@ namespace Builder
 
         public static void TargetDefault()
         {
-            
+            TargetCompile();
         }
 
         public static void TargetClean()
         {
-            
+            if(Directory.Exists(buildDir))
+            {
+                Directory.Delete(buildDir);
+            }
         }
 
         public static void TargetCompile()
